@@ -1,0 +1,12 @@
+#include <iostream>
+#include "swapFunc.hpp"
+
+using std::cin; using std::cout; using std::endl;
+
+int main() {
+  // inputs the numbers
+  cout << "Enter three numbers: ";
+  int X, Y, Z;
+  cin >> X >> Y >> Z;
+  swap(X,Y,Z);
+}

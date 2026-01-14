@@ -1,0 +1,27 @@
+#include <iostream>
+#include "LuckyFunc.hpp"
+
+using std::cin; using std::cout; using std::endl;
+void assemble(int []);
+void draw(int []);
+bool check(int,int []);
+
+int main() {
+    int YAY[winNum];
+    int cool;
+    assemble(YAY);
+    draw(YAY);
+    for(int o=0; o<5;o++) {
+        cout << "Enter a number from 0-99: ";
+        cin >> cool;
+        if(check(cool,YAY)){
+            cout << "WINNNER";
+            break;
+        }
+    }
+    cout << "LOSER";
+    for (int p=0;p<winNum;p++) {
+        cout << YAY[p] << " ";
+    }
+
+}

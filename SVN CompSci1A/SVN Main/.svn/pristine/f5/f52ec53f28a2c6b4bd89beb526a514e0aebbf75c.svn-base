@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include "LuckyFunc.hpp"
+
+using std::cin; using std::cout; using std::endl;
+
+void draw(int yay[]) {
+    for(int i=0;i<winNum;i++) {
+        srand(time(NULL));
+        yay[i] = rand() % 100;
+        for(int x=0;x<winNum;x++) {
+            if(yay[i]==yay[x]) {
+                i--;
+            }
+        }
+    }
+}
+
+bool check(int play, int yaY[]) {
+    for(int h=0;h<winNum;h++) {
+        if(play==yaY[h]) {
+            return true;
+        }
+    }
+    return false;
+}
+

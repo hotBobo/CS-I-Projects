@@ -1,0 +1,4 @@
+#ifndef SWAPFUNC_HPP
+#define SWAPFUNC_HPP
+void swap(int, int, int);
+#endif

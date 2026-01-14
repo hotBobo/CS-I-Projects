@@ -1,0 +1,130 @@
+#include <iostream>
+#include "maze.hpp"
+#include <ctime>
+#include <cstdlib>
+
+using std::cout; using std::cin; using std::endl;
+
+void clearWalls(RoomPair[]) {
+
+}
+
+bool goodDirection(const Room &rm, const char dr) {
+    switch (dr) {
+        case 'u':
+            if(rm.y-1<startRoom.y){
+                return false;
+            } else {return true;}
+            break;
+
+        case 'd':
+            if(rm.y+1>cheeseRoom.y){
+                return false;
+            } else {return true;}
+            break;
+
+        case 'l':
+            if(rm.x-1<startRoom.x){
+                return false;
+            } else {return true;}
+            break;
+
+        case 'r':
+            if(rm.x+1>cheeseRoom.x){
+                return false;
+            } else {return true;}
+            break;
+            
+        default:
+            cout << "Invalid Direction (gDir)";
+            exit(1);
+            break;
+    }
+}
+
+Room createAdjacent(const Room &rm, const char dr) {
+    Room adj = rm;
+    switch (dr) {
+        case 'u':
+            adj.y -= 1;
+            return adj;
+            break;
+
+        case 'd':
+            adj.y += 1;
+            return adj;
+            break;
+
+        case 'l':
+            adj.x -= 1;
+            return adj;
+            break;
+
+        case 'r':
+            adj.x += 1;
+            return adj;
+            break;
+        
+        default:
+            cout << "Invalid Input (cAdj)" << endl;
+            exit(1);
+            break;
+    }
+}
+
+const Room pickAdjacent(const Room &rm) {
+    char pick[4] = {'u','d','l','r'};
+    while(true) {
+        int i = rand() % 4;
+        if(goodDirection(rm,pick[i])){
+            Room adj = createAdjacent(rm, pick[i]);
+            return adj;
+        } else {continue;}
+    }
+}
+
+const RoomPair pickPair() {
+
+}
+
+bool matchRoom(const Room&, const Room&) {
+
+}
+
+bool matchPair(const RoomPair&, const RoomPair&) {
+
+}
+
+bool checkMaze(const RoomPair[], const RoomPair &rp) {
+
+}
+
+void build(RoomPair[]) {
+
+}
+
+void printRoom(const Room& rum){
+    cout << rum.y << rum.x;
+}
+
+void printPair(const RoomPair&) {
+
+}
+
+void printMaze(const RoomPair[]) {
+
+}
+
+const Room nextMove(const Room& currentRoom) {
+    char input;
+    Room cRoom = currentRoom;
+    cout << "Where would you like to move? (u, d, l, r)" << endl;
+    cin >> input;
+    if (goodDirection(currentRoom, input)) {
+        cRoom = createAdjacent(currentRoom, input);
+        return cRoom;
+    } else {
+        cout << "Bad direction.";
+        return nextMove(currentRoom);
+    }
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+#include "LuckyFunc.hpp"
+
+using std::cin; using std::cout; using std::endl;
+void draw();
+bool check(int);
+
+int main() {
+
+    int cool;
+    draw();
+    for(int o=0; o<5;o++) {
+        cout << "Enter a number";
+        cin >> cool;
+        if(check(cool)){
+            cout << "WINNNER";
+            break;
+        }
+    }
+    cout << "LOSER";
+
+}

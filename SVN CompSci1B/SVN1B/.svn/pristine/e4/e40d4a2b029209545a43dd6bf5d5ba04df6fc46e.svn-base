@@ -1,0 +1,106 @@
+#include <iostream>
+#include "maze.hpp"
+#include <ctime>
+#include <cstdlib>
+
+using std::cout; using std::cin; using std::endl;
+
+void clearWalls(RoomPair[]) {
+
+}
+
+bool goodDirection(const Room &rm, const char dr) {
+    switch (dr) {
+        case 'u':
+            if(rm.y-1<startRoom.y){
+                return false;
+            } else {
+                return true;
+            }
+            break;
+
+        case 'd':
+            /* code */
+            break;
+
+        case 'l':
+            /* code */
+            break;
+
+        case 'r':
+            /* code */
+            break;
+            
+        default:
+            cout << "Invalid Direction";
+            break;
+    }
+}
+
+Room createAdjacent(const Room &rm, const char dr) {
+
+}
+
+const Room pickAdjacent(const Room &rm) {
+
+}
+
+const RoomPair pickPair() {
+
+}
+
+bool matchRoom(const Room&, const Room&) {
+
+}
+
+bool matchPair(const RoomPair&, const RoomPair&) {
+
+}
+
+bool checkMaze(const RoomPair[], const RoomPair &rp) {
+
+}
+
+void build(RoomPair[]) {
+
+}
+
+void printRoom(const Room& rum){
+    cout << rum.y << rum.x;
+}
+
+void printPair(const RoomPair&) {
+
+}
+
+void printMaze(const RoomPair[]) {
+
+}
+
+const Room nextMove(Room currentRoom) {
+    char input;
+    cout << "Where would you like to move? (u, d, l, r)" << endl;
+    cin >> input;
+    switch(input) {
+        case 'u':
+            currentRoom.y -=1;
+            return currentRoom;
+            break;
+        case 'd':
+            currentRoom.y +=1;
+            return currentRoom;
+            break;
+        case 'l':
+            currentRoom.x -=1;
+            return currentRoom;
+            break;
+        case 'r':
+            currentRoom.x +=1;
+            return currentRoom;
+            break;
+        default:
+            cout << "Invalid Input" << endl;
+            break;
+    }
+
+}
